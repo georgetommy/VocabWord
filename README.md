@@ -1,2 +1,2 @@
 # VocabWord
-Android application for the Vocab project
+Android application for the Vocab project.
