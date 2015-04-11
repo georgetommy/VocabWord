@@ -8,17 +8,39 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.table.TableUtils;
+import com.vocabworld.danigabi.datastructure.Word;
+
+import com.j256.ormlite.dao.Dao;
+
 
 public class MainActivity extends ActionBarActivity {
 
     public final static String EXTRA_WORD = "com.vocabworld.danigabi.vocabworld.WORD";
 
-    public void searchWord(View view){
+    public void searchWord(View view) throws Exception{
         Intent intent = new Intent(this,SearchResultActivity.class);
         EditText editText = (EditText)findViewById(R.id.search_word);
         String word = editText.getText().toString();
-        intent.putExtra(EXTRA_WORD, word);
+        intent.putExtra(EXTRA_WORD, word + " - " + testDatabase());
         startActivity(intent);
+    }
+
+    public String testDatabase() throws Exception{
+//        ConnectionSource connectionSource = new JdbcConnectionSource("url");
+//        Dao<Word, String> wordDao = DaoManager.createDao(connectionSource, Word.class);
+//        TableUtils.createTable(connectionSource, Word.class);
+//        Word word = new Word();
+//        word.setId(0);
+//        word.setText("coucou");
+//        wordDao.create(word);
+//
+//        Word word2 = wordDao.queryForId("0");
+//        connectionSource.close();
+        return "testing";
     }
 
     @Override

@@ -1,23 +1,38 @@
 package com.vocabworld.danigabi.datastructure;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 /**
  * Created by Gabrielle on 11-Apr-15.
  */
+@DatabaseTable(tableName = "words")
 public class Word {
 
+    @DatabaseField(id = true, canBeNull = false, generatedId = true)
     private int id;
 
+    @DatabaseField
     private int languageId;
 
+    @DatabaseField
     private int meaningId;
 
+    @DatabaseField
     private String text;
 
+    @DatabaseField
     private String timeDeleted;
 
+    @DatabaseField
     private String timeCreated;
 
+    @DatabaseField
     private String timeUpdated;
+
+    public Word(){
+
+    }
 
     public int getId() {
         return id;
