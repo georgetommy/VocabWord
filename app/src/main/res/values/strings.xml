@@ -11,5 +11,6 @@
     <string name="search_word">Enter a word</string>
     <string name="button_search">Search</string>
     <string name="search_result">No result!</string>
+    <string name="title_activity_database_test">DatabaseTest</string>
 
 </resources>

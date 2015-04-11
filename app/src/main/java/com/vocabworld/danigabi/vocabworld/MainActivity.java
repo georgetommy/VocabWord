@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.jdbc.JdbcConnectionSource;
+
+import com.j256.ormlite.logger.Logger;
+import com.j256.ormlite.logger.LoggerFactory;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.vocabworld.danigabi.datastructure.Word;
@@ -21,7 +23,11 @@ public class MainActivity extends ActionBarActivity {
 
     public final static String EXTRA_WORD = "com.vocabworld.danigabi.vocabworld.WORD";
 
+    private static Logger log = LoggerFactory.getLogger(MainActivity.class);
+
     public void searchWord(View view) throws Exception{
+        System.out.println("coucou ");
+        log.debug("coucou");
         Intent intent = new Intent(this,SearchResultActivity.class);
         EditText editText = (EditText)findViewById(R.id.search_word);
         String word = editText.getText().toString();
