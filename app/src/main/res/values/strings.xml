@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Search strings -->
+    <string name="search_word">Enter a word</string>
+    <string name="button_search">Search</string>
+    <string name="search_result">No result!</string>
 </resources>
