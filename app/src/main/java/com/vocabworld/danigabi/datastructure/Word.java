@@ -9,7 +9,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "words")
 public class Word {
 
-    @DatabaseField(id = true, canBeNull = false, generatedId = true)
+    @DatabaseField(id = true, canBeNull = false, generatedId = true, allowGeneratedIdInsert = true)
     private int id;
 
     @DatabaseField
@@ -18,7 +18,8 @@ public class Word {
     @DatabaseField
     private int meaningId;
 
-    @DatabaseField
+    //word_text_idx
+    @DatabaseField(index=true)
     private String text;
 
     @DatabaseField

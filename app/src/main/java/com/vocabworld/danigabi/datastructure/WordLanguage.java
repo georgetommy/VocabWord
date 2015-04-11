@@ -9,7 +9,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "wordlanguages")
 public class WordLanguage {
 
-    @DatabaseField(id = true, canBeNull = false, generatedId = true)
+    @DatabaseField(id = true, canBeNull = false, generatedId = true, allowGeneratedIdInsert = true)
     private int id;
 
     @DatabaseField

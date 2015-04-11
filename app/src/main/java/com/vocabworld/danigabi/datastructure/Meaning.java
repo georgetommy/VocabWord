@@ -9,7 +9,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "meanings")
 public class Meaning {
 
-    @DatabaseField(id = true, canBeNull = false, generatedId = true)
+    @DatabaseField(id = true, canBeNull = false, generatedId = true, allowGeneratedIdInsert = true)
     private int id;
 
     @DatabaseField
