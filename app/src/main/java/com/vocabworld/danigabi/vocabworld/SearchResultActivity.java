@@ -31,8 +31,8 @@ public class SearchResultActivity extends OrmLiteBaseActivity<DatabaseHelper> {
         TextView textView = new TextView(this);
 
 
-        
 
+        System.out.println("coucou test build");
 
         List<Word> words;
       //  try {

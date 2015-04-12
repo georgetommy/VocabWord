@@ -12,5 +12,9 @@
     <string name="button_search">Search</string>
     <string name="search_result">No result!</string>
     <string name="title_activity_database_test">DatabaseTest</string>
+    <string name="title_activity_my">MyActivity</string>
+    <string name="title_activity_thing">ThingActivity</string>
+
+    <string name="hello">Hello World, Lop!</string>
 
 </resources>
