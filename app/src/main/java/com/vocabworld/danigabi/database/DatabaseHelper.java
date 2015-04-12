@@ -40,13 +40,14 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     /**
-     * This is called when the database is first created. Usually you should call createTable statements here to create
+     * This is called when the database is first created. Usually you should call
+     * createTable statements here to create
      * the tables that will store your data.
      */
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
-            Log.i(DatabaseHelper.class.getName(), "onCreate");
+            System.out.println("onCreate of database helper");
             TableUtils.createTable(connectionSource, Word.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -54,7 +55,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
 
         // here we try inserting data in the on-create as a test
-        RuntimeExceptionDao<Word, Integer> dao = getSimpleDataDao();
+        RuntimeExceptionDao<Word, Integer> dao = getSimpleRuntimeDao();
         long millis = System.currentTimeMillis();
         // create some entries in the onCreate
         Word word = new Word();
@@ -63,11 +64,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         word = new Word();
         word.setText(String.valueOf(millis + 1));
         dao.create(word);
-        Log.i(DatabaseHelper.class.getName(), "created new entries in onCreate: " + millis);
+        System.out.println( "created new entries in onCreate: " + millis);
     }
 
     /**
-     * This is called when your application is upgraded and it has a higher version number. This allows you to adjust
+     * This is called when your application is upgraded and it has a higher version number.
+     * This allows you to adjust
      * the various data to match the new version number.
      */
     @Override
@@ -87,7 +89,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
      * Returns the Database Access Object (DAO) for our SimpleData class. It will create it or just give the cached
      * value.
      */
-    public Dao<Word, Integer> getDao() throws SQLException {
+    public Dao<Word, Integer> getWordDao() throws SQLException {
         if (wordDao == null) {
             wordDao = getDao(Word.class);
         }
@@ -98,7 +100,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
      * Returns the RuntimeExceptionDao (Database Access Object) version of a Dao for our SimpleData class. It will
      * create it or just give the cached value. RuntimeExceptionDao only through RuntimeExceptions.
      */
-    public RuntimeExceptionDao<Word, Integer> getSimpleDataDao() {
+    public RuntimeExceptionDao<Word, Integer> getSimpleRuntimeDao() {
         if (simpleRuntimeDao == null) {
             simpleRuntimeDao = getRuntimeExceptionDao(Word.class);
         }

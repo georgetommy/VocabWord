@@ -40,7 +40,7 @@ public class DatabaseTestActivity extends OrmLiteBaseActivity<DatabaseHelper> {
      */
     private void doSampleDatabaseStuff(String action, TextView tv) {
         // get our dao
-        RuntimeExceptionDao<Word, Integer> simpleDao = getHelper().getSimpleDataDao();
+        RuntimeExceptionDao<Word, Integer> simpleDao = getHelper().getSimpleRuntimeDao();
         // query for all of the data objects in the database
         List<Word> list = simpleDao.queryForAll();
         // our string builder for building the content-view

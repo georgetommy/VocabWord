@@ -7,8 +7,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
+import com.vocabworld.danigabi.database.DatabaseHelper;
+import com.vocabworld.danigabi.datastructure.Word;
 
-public class SearchResultActivity extends ActionBarActivity {
+import java.sql.SQLException;
+import java.util.List;
+
+
+public class SearchResultActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
 
 
@@ -22,8 +29,20 @@ public class SearchResultActivity extends ActionBarActivity {
         String word = intent.getStringExtra(MainActivity.EXTRA_WORD);
 
         TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText("No result found for \"" + word + "\"");
+
+
+
+        List<Word> words;
+      //  try {
+       //     words = getHelper().getWordDao().queryForAll();
+       // }catch(SQLException e){
+      //      throw new RuntimeException("nope",e);
+      //  }
+        int count = -1;
+      //  if(words != null){
+     //       count = words.size();
+     //   }
+        textView.setText("No result found for \"" + word + "\" \nFound " + count + " words in DB");
 
         setContentView(textView);
     }
