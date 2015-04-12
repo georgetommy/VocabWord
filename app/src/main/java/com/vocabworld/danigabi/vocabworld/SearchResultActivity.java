@@ -33,6 +33,7 @@ public class SearchResultActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
         
 
+
         List<Word> words;
       //  try {
        //     words = getHelper().getWordDao().queryForAll();
